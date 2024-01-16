@@ -1,0 +1,13 @@
+{
+    "primaria": "Colegio Cooperativo Socorro",
+    "secundaria": "Colegio Avelina Moreno",
+    "universidad": "Universidad Autónoma de Bucaramanga",
+    "título de pregrado":"Ingeniero Biomédico",
+    "cursos":[{"personal academy": "Certificado Lean Six Sigma", 
+                "ingles": "Certificado B2 IELTS", 
+                "Platzi": "Programación Básica",
+                "solo learn":"Introduccion a JavaScript",
+                "universidad nacional": "Introducción a Python"}],
+    "educacion continua": [{"UNAB": "Diplomado en Fundamentos de Medicina Regenerativa, Ingeniería de Tejidos y Medicina de Precisión"}]
+    
+}
