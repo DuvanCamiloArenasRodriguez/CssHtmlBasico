@@ -280,6 +280,10 @@ Lo ideal es trabajar el color en hexadecimal
 
 El orden de los archivos es el siguiente:
 
+
+
+![estructura de archivos](H:\Mi unidad\Actividades Campuslands\paginaWeb\miPaginaWeb\storage\imagenes\archivoscss.jpeg)
+
 ![archivoscss](D:\Descargas_si\archivoscss.jpeg)
 
 ### Importar archivos CSS dentro de otro CSS:
@@ -593,4 +597,57 @@ Toma los siguientes atributos:
 `align-content: space-around;`
 
 `align-content: stretch;`
+
+
+
+## Grid
+
+Conceptos básicos de Grid:
+
+- Contenedor: Elemento padre contenedor que define la cuadrícula o rejilla
+- Item: Cada uno de los hijos que contiene la cuadrícula
+- Celda (Grid Cell): Cada uno de los cuadros de la cuadrícula
+- Área (Grid-area): Región o conjunto de celdas de la cuadrícula
+- Banda (grid-track): Banda horizontal o vertical de celdas de la cuadrícula
+- Línea (grid-line): Separador horizontal o vertical de las celdas de la cuadrícula
+- Grid: Establece una cuadrícula con líneas en bloque
+- inline-grid: Establece una cuadrícula con ítems en línea, de forma equivalente a inline-block
+
+Hay que definir el tamaño de las filas y columnas usando:
+
+`grid-template-columns:__ __ __;` y/o `grid-template-rows: __ __ __;`
+
+Cada una con su respectivo tamaño de filas y columnas.
+
+Ejemplo:
+
+```css
+.grid {
+    display: grid;
+    grid-template-columns: 50px 300px;
+    grid-template-rows: 200px 75px;
+}
+```
+
+Dependiendo del número de elementos hijos del `div`, se crea los elementos grid.
+
+### Unidades de grid
+
+Las unidades con que trabaja Grid son las siguientes:
+
+- px
+- procentajes
+- auto
+- fr
+
+Con `repeat( )` se repite un número de veces específico
+
+Ejemplo:
+
+```css
+grid-template-columns: 100px(repeat(4,50px) 200px);
+grid-template-rows: 100px(repeat(2,1fr) 2fr);
+```
+
+
 
