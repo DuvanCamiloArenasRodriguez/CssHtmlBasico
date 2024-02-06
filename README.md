@@ -636,7 +636,7 @@ Dependiendo del número de elementos hijos del `div`, se crea los elementos grid
 Las unidades con que trabaja Grid son las siguientes:
 
 - px
-- procentajes
+- porcentajes
 - auto
 - fr
 
@@ -649,5 +649,190 @@ grid-template-columns: 100px(repeat(4,50px) 200px);
 grid-template-rows: 100px(repeat(2,1fr) 2fr);
 ```
 
+Con `repeat` se repite un número de veces específico.
 
+Ejemplo:
+
+```css
+div {
+	grid-template-columns: 100px(repeat(4,50px)200px);
+    grid-template-rows: repeat(2, 1fr, 2fr);
+}
+```
+
+### Función minmax()
+
+Se establece un rango mínimo y máximo. Máximo para cuando la pantalla está completa y mínimo para cuando esta se reduce.
+
+Ejemplo:
+
+```css
+cuadro1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+```
+
+```
+.cuadro2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    }
+
+```
+
+### Espacio entre celdas
+
+El espacio entre celdas se usa con `column-gap` y `row-gap`
+
+Ejmeplo:
+
+```css
+.grid {
+	column-gap: 100px;
+    row-gap: 10px;
+}
+```
+
+En este ejemplo los espacios entre columnas serán de 100px y entre filas será de 10px.
+
+Se puede usar también de manera abreviada:
+
+```css
+.grid {
+	gap: 20px 80px
+}
+```
+
+El orden es fila - columna
+
+### Alinear elementos
+
+#### Propiedades:
+
+Puede afectar al contenedor padre y a los hijos.
+
+##### justify-items
+
+Ubica los item del contenedor grid a lo largo de sus celdas correspondientes en el eje horizontal (principal). Se puede emplear con:
+
+`start`
+
+`end`
+
+`center`
+
+`stretch`
+
+##### align-items
+
+Coloca los item de un contenedor grid a lo largo de sus celdas correspondientes en el eje vertical (secundario). Se puede emplear con:
+
+`start`
+
+`end`
+
+`center` 
+
+`stretch`
+
+##### justify-content
+
+Modifica la distribución del contenido de la cuadrícula en su contenedor padre, a lo largo de su eje horizontal (principal). Se puede emplear con:
+
+`start`
+
+`end`
+
+`center`
+
+`stretch`
+
+`space-between`
+
+`space-around`
+
+`space-evenly`
+
+##### align-content
+
+Ubica el contenido de la cuadrícula en su contenedor padre, a lo largo del eje vertical (secundario). Se puede emplear con:
+
+`start`
+
+`end`
+
+`center`
+
+`stretch`
+
+`space-between`
+
+`space-around`
+
+`space-evenly`
+
+#### Alineaciones específicas
+
+`justify-self`: Altera la alineación del item hijo en el eje horizontal (principal) y la sobreescribe con la indicada. Se emplean los mismos atributos de justify-items
+
+`align-self`: Altera alineación del ítem hijo en el eje vertical (secundario) y la sobreescribe con la indicada.
+
+Estos se usan con los elementos hijos de un contenedor.
+
+#### Grid por áreas
+
+Se puede indicar el nombre y posición concreta de cada área de una cuadrícula
+
+##### grid-template-areas:
+
+Se usa en el contenedor padre grid.
+
+**Hay que definir las áreas**
+
+Cada fila puede tener una o varias áreas, las cuales se debe separar por espacio.
+
+##### Valores: 
+
+- `none`: No se creará ninguna plantilla de áreas
+- `"head"`: Se creará 1 fila de 1 columna con el área "head"
+- `head menu`: Se creará 1 fila de 2 columnas con el área head en una y el área menú en otra
+- `"head head"`: Creará 1 fila de 2 columnas con el área head ocupando ambas
+- `"."`: Indica que se colocará una celda sin nombre
+
+#### grid-area
+
+Las áreas de grid-template-areas deben estar definidas con grid-area en sus hijos
+
+**El nombre del área es diferente al nombre de la clase**
+
+##### Valores:
+
+- `auto`: Ubica la celda en la próxima área vacía que encuentre disponible
+- `nombre`: Le da un nombre de área al elemento
+
+Ejemplo:
+
+```css
+.container: {
+    display: grid;
+    grid-template-areas: "head head";
+    					"menu main";
+    					"foot foot";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 200px 100px;
+}
+item-1 {grid-area: head; background: blue;}
+item-2 {grid-area: menu . . .}
+item-3 {grid-area: main . . .}
+item-4 {grid-area: foot }
+```
 
